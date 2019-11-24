@@ -18,7 +18,7 @@
   </div>
 
   <ul>
-    <li *ngFor="let short of displayArr" class="card short-item">
+    <li *ngFor="let short of shortenings" class="card short-item">
       <h2>{{ short.myName }}</h2>
       <div class="short-item-more">
         <button routerLink="/shortener/{{ short.id }}">

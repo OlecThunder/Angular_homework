@@ -35,7 +35,6 @@ export class StorageService {
   }
 
   updateStorage(shortenings: Shortening[]): void {
-    debugger;
     localStorage.setItem("shortenings", JSON.stringify(shortenings));
   }
 

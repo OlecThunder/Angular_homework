@@ -6,17 +6,8 @@ import { UrlDetailsComponent } from "./components/url-details/url-details.compon
 
 const routes: Routes = [
   { path: "", component: WelcomePageComponent },
-  {
-    path: "shortener",
-    component: ShorteningPageComponent,
-    children: [
-      {
-        path: ":id",
-        component: UrlDetailsComponent
-      }
-    ]
-  }
-  // { path: "shortener/:id", component: UrlDetailsComponent }
+  { path: "shortener", component: ShorteningPageComponent },
+  { path: "shortener/:id", component: UrlDetailsComponent }
 ];
 
 @NgModule({

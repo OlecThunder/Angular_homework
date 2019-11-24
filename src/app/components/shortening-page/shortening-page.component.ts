@@ -8,11 +8,10 @@ import { Component, OnInit, DoCheck } from "@angular/core";
   templateUrl: "./shortening-page.component.html",
   styleUrls: ["./shortening-page.component.css"]
 })
-export class ShorteningPageComponent implements OnInit, DoCheck {
+export class ShorteningPageComponent implements OnInit {
   url = "";
   name = "";
   filter = "";
-  displayArr: Shortening[] = [];
   shortenings: Shortening[] = [];
 
   constructor(
@@ -20,7 +19,7 @@ export class ShorteningPageComponent implements OnInit, DoCheck {
     private storageService: StorageService
   ) {
     this.updateShortenings();
-    this.displayArr = this.shortenings;
+    this.shortenings = this.shortenings;
   }
 
   ngOnInit() {}
@@ -51,10 +50,8 @@ export class ShorteningPageComponent implements OnInit, DoCheck {
 
   onFilterInput() {
     let re = new RegExp(`${this.filter}`, "i");
-    this.displayArr = this.shortenings.filter(item => re.test(item.myName));
-  }
-
-  ngDoCheck() {
-    console.log(this.displayArr);
+    this.shortenings = this.storageService
+      .getShortenings()
+      .filter(item => re.test(item.myName));
   }
 }

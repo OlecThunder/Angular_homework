@@ -27,3 +27,17 @@
   justify-content: space-between;
   align-items: center;
 }
+
+a:link,
+a:visited {
+  color: #777;
+  text-decoration: none;
+  word-wrap: break-word;
+  font-size: 14px;
+}
+
+a:hover,
+a:active {
+  color: teal;
+  text-decoration: underline;
+}

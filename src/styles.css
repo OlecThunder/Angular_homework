@@ -27,3 +27,35 @@ ul {
 .mb1 {
   margin-bottom: 10px;
 }
+
+button {
+  background-color: #1976d2;
+  padding: 5px 20px;
+  border: 1px solid rgb(0, 8, 43);
+  border-radius: 500px;
+  transition: all 0.3s;
+}
+
+button:hover {
+  transform: translateY(-0.3rem);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.219);
+}
+
+button:focus,
+button:active {
+  outline: none;
+  transform: translateY(-0.1rem);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.219);
+}
+
+input {
+  padding: 5px 20px;
+  border-radius: 5px;
+  background-color: #ddd;
+  border-bottom: 3px solid transparent;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.281);
+}
+
+input:focus {
+  outline: none;
+}

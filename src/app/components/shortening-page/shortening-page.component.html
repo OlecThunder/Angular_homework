@@ -1,0 +1,34 @@
+<h1>Shortener</h1>
+
+<div>
+  <div class="action-bar">
+    <div class="shorten">
+      <input type="text" placeholder="Name" [(ngModel)]="name" />
+      <input type="text" placeholder="URL" [(ngModel)]="url" />
+      <button (click)="onSubmit()">Shorten</button>
+    </div>
+    <div class="filter">
+      <input
+        type="text"
+        placeholder="Filter name"
+        (keyup)="onFilterInput()"
+        [(ngModel)]="filter"
+      />
+    </div>
+  </div>
+
+  <ul>
+    <li
+      *ngFor="let short of shortenings; let i = index"
+      class="card short-item"
+    >
+      <h2>{{ short.myName }}</h2>
+      <div class="short-item-more">
+        <button routerLink="/shortener/{{ i }}">
+          View details
+        </button>
+        <button (click)="onDelete(i)">Delete</button>
+      </div>
+    </li>
+  </ul>
+</div>

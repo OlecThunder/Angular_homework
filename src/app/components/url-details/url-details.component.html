@@ -1,0 +1,36 @@
+<div class="url-details-page">
+  <div class="item-container">
+    <div class="details">
+      <div class="name-delete">
+        <h1>{{ this.shortening.myName }}</h1>
+        <button (click)="onClick()">Delete</button>
+      </div>
+      <div class="orig-link">
+        Original link:
+        <a href="{{ this.shortening.original_link }}">{{
+          this.shortening.original_link
+        }}</a>
+      </div>
+      <div class="share-link">
+        Share link:
+        <a href="{{ this.shortening.original_link }}">{{
+          this.shortening.share_link
+        }}</a>
+      </div>
+      <div class="short-link">
+        Short link:
+        <a href="{{ this.shortening.short_link }}">{{
+          this.shortening.short_link
+        }}</a>
+      </div>
+      <div class="short-link-2">
+        Short link 2:
+        <a href="{{ this.shortening.short_link2 }}">{{
+          this.shortening.short_link2
+        }}</a>
+      </div>
+    </div>
+  </div>
+
+  <button class="go-back" (click)="onBack()">Go back</button>
+</div>

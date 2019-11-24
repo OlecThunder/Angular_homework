@@ -25,8 +25,8 @@ export class StorageService {
     }
   }
 
-  getSingleShortening(id: number): Shortening {
-    return this.getShortenings()[id];
+  getSingleShortening(id: string): Shortening {
+    return this.getShortenings().filter(item => item.id === id)[0];
   }
 
   saveShortenings(shortening: Shortening): void {
@@ -35,13 +35,12 @@ export class StorageService {
   }
 
   updateStorage(shortenings: Shortening[]): void {
+    debugger;
     localStorage.setItem("shortenings", JSON.stringify(shortenings));
   }
 
-  deleteItem(deleteId: number): void {
-    this.shortening = this.shortening.filter(
-      (item, index) => index !== deleteId
-    );
+  deleteItem(deleteId: string): void {
+    this.shortening = this.shortening.filter(item => item.id !== deleteId);
     this.updateStorage(this.shortening);
   }
 }

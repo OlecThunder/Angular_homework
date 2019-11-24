@@ -18,16 +18,13 @@
   </div>
 
   <ul>
-    <li
-      *ngFor="let short of shortenings; let i = index"
-      class="card short-item"
-    >
+    <li *ngFor="let short of displayArr" class="card short-item">
       <h2>{{ short.myName }}</h2>
       <div class="short-item-more">
-        <button routerLink="/shortener/{{ i }}">
+        <button routerLink="/shortener/{{ short.id }}">
           View details
         </button>
-        <button (click)="onDelete(i)">Delete</button>
+        <button (click)="onDelete(short.id)">Delete</button>
       </div>
     </li>
   </ul>

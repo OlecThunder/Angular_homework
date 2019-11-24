@@ -1,18 +1,18 @@
 import { StorageService } from "./../../services/storage.service";
 import { Shortening } from "./../../models/shortening-response.interface";
 import { ShortenerApiService } from "./../../services/shortener-api.service";
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, DoCheck } from "@angular/core";
 
 @Component({
   selector: "app-shortening-page",
   templateUrl: "./shortening-page.component.html",
   styleUrls: ["./shortening-page.component.css"]
 })
-export class ShorteningPageComponent implements OnInit {
+export class ShorteningPageComponent implements OnInit, DoCheck {
   url = "";
   name = "";
   filter = "";
-  displayArr = [];
+  displayArr: Shortening[] = [];
   shortenings: Shortening[] = [];
 
   constructor(
@@ -20,6 +20,7 @@ export class ShorteningPageComponent implements OnInit {
     private storageService: StorageService
   ) {
     this.updateShortenings();
+    this.displayArr = this.shortenings;
   }
 
   ngOnInit() {}
@@ -31,6 +32,7 @@ export class ShorteningPageComponent implements OnInit {
     let syncName = this.name;
     this.shortAPI.shortenUrl(this.url).subscribe(response => {
       response.result.myName = syncName;
+      response.result.id = new Date().getTime().toString();
       this.storageService.saveShortenings(response.result);
       this.updateShortenings();
     });
@@ -50,6 +52,9 @@ export class ShorteningPageComponent implements OnInit {
   onFilterInput() {
     let re = new RegExp(`${this.filter}`, "i");
     this.displayArr = this.shortenings.filter(item => re.test(item.myName));
+  }
+
+  ngDoCheck() {
     console.log(this.displayArr);
   }
 }

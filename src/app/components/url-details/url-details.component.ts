@@ -14,7 +14,7 @@ import {
   styleUrls: ["./url-details.component.css"]
 })
 export class UrlDetailsComponent implements OnInit {
-  id: number;
+  id: string;
   shortening: Shortening;
 
   constructor(
@@ -22,9 +22,8 @@ export class UrlDetailsComponent implements OnInit {
     private route: ActivatedRoute,
     private storageService: StorageService
   ) {
-    this.id = Number(this.route.snapshot.paramMap.get("id"));
+    this.id = this.route.snapshot.paramMap.get("id");
     this.shortening = this.storageService.getSingleShortening(this.id);
-    console.log(this.shortening);
   }
 
   onClick() {

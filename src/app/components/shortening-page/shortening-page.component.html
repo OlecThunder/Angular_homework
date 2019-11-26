@@ -28,4 +28,11 @@
       </div>
     </li>
   </ul>
+  <div class="mbif" *ngIf="this.shortenings[0] === undefined">
+    Nothing matches
+  </div>
+  <div class="progress-loader" [hidden]="!loading">
+    <mat-progress-spinner [mode]="'indeterminate'" [color]="accent">
+    </mat-progress-spinner>
+  </div>
 </div>

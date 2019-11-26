@@ -13,6 +13,7 @@ export class ShorteningPageComponent implements OnInit {
   name = "";
   filter = "";
   shortenings: Shortening[] = [];
+  loading = false;
 
   constructor(
     private shortAPI: ShortenerApiService,
@@ -29,11 +30,13 @@ export class ShorteningPageComponent implements OnInit {
       return;
     }
     let syncName = this.name;
+    this.loading = true;
     this.shortAPI.shortenUrl(this.url).subscribe(response => {
       response.result.myName = syncName;
       response.result.id = new Date().getTime().toString();
       this.storageService.saveShortenings(response.result);
       this.updateShortenings();
+      this.loading = false;
     });
   }
 

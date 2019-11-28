@@ -1,3 +1,4 @@
+Hi, this is TC: Angular Homework. Thanks for reviewing this, i wonder if this app supposed to be avaliable on gh-pages. If so, please tell me and i'll try to make it avaliable on it.
 # AngularHomework
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.16.
